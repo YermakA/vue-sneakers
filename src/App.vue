@@ -1,10 +1,12 @@
 <script setup>
-import TheHeader from "./components/TheHeader.vue";
+import TheHeader from './components/TheHeader.vue'
+import CardList from './components/CardList.vue'
 </script>
 
 <template>
-  <div class="bg-white w-4/5 mx-auto h-screen rounded-3xl shadow-xl mt-14">
+  <div class="bg-white w-4/5 mx-auto h-auto rounded-3xl shadow-xl mt-14 pb-3">
     <TheHeader />
+    <CardList />
   </div>
 </template>
 
