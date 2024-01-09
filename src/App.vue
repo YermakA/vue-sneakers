@@ -1,10 +1,15 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import TheHeader from './components/TheHeader.vue'
 import CardList from './components/CardList.vue'
 import Drawer from './components/Drawer.vue'
+
+const drawerIsOpen = ref(false)
+onMounted(() => {})
 </script>
 
 <template>
+  <Drawer v-if="drawerIsOpen" />
   <div class="bg-white w-4/5 mx-auto h-auto rounded-3xl shadow-xl mt-14 pb-3">
     <TheHeader />
     <div class="p-10">
