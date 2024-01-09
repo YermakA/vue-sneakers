@@ -10,6 +10,25 @@
       <CartItem />
       <CartItem />
     </ul>
+    <div class="mb-5">
+      <div>
+        <div>
+          <span class="text-lg">Total:</span>
+          <b class="block text-lg">12990 RUB</b>
+        </div>
+      </div>
+      <div>
+        <div>
+          <span class="text-lg">Tax: 5%</span>
+          <b class="block text-lg">900 RUB</b>
+        </div>
+      </div>
+    </div>
+    <button
+      class="transition bg-lime-400 rounded-3xl py-3 w-full font-bold disabled:bg-slate-300 text-slate-100 hover:bg-lime-700 active:bg-lime-800"
+    >
+      Place an order
+    </button>
   </div>
 </template>
 
