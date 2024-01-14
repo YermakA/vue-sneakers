@@ -1,16 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import axios from 'axios'
 import Card from './Card.vue'
-const items = ref([])
-onMounted(async () => {
-  try {
-    const { data } = await axios.get('https://3b693c9b64066ada.mokky.dev/items')
-    items.value = data
-    console.log(items.value)
-  } catch {
-    console.log('err')
-  }
+defineProps({
+  items: Object
 })
 </script>
 <template>
