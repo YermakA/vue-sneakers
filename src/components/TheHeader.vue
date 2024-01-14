@@ -1,3 +1,12 @@
+<script setup>
+import { inject } from 'vue'
+const drawerIsOpen = inject('drawerIsOpen')
+const drawerToggling = () => {
+  return (drawerIsOpen.value = !drawerIsOpen.value)
+}
+</script>
+
+
 <template>
   <header class="flex justify-between border-b px-10 py-8 border-slate-300 mb-5">
     <div class="flex items-center gap-4">
@@ -8,7 +17,7 @@
       </div>
     </div>
     <ul class="flex items-center gap-10">
-      <li class="flex cursor-pointer hover:text-black gap-3 text-slate-500">
+      <li @click="drawerToggling" class="flex cursor-pointer hover:text-black gap-3 text-slate-500">
         <img src="/public/cart.svg" alt="cart" />
         <b>1205 RUB</b>
       </li>
