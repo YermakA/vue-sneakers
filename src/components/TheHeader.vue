@@ -1,9 +1,17 @@
 <script setup>
-import { inject } from 'vue'
+import { inject, computed } from 'vue'
 const drawerIsOpen = inject('drawerIsOpen')
 const drawerToggling = () => {
   return (drawerIsOpen.value = !drawerIsOpen.value)
 }
+const drawerItems = inject('elements').drawerItems
+const getTotal = computed(() => {
+  let total = 0
+  for (const item of drawerItems.value) {
+    total += item.price
+  }
+  return total
+})
 </script>
 
 
@@ -19,7 +27,7 @@ const drawerToggling = () => {
     <ul class="flex items-center gap-10">
       <li @click="drawerToggling" class="flex cursor-pointer hover:text-black gap-3 text-slate-500">
         <img src="/public/cart.svg" alt="cart" />
-        <b>1205 RUB</b>
+        <b>{{ getTotal }} RUB</b>
       </li>
       <li class="flex cursor-pointer hover:text-black gap-3 text-slate-500">
         <img src="/public/heart.svg" alt="cart" />

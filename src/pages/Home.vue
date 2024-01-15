@@ -15,7 +15,7 @@ const filters = reactive({
   sortBy: '',
   searchQuery: ''
 })
-watch(filters, () => fetchItems(filters, items))
+watch(filters, () => fetchItems(filters, items, drawerItems))
 onMounted(() => getItems(items))
 
 const onChangeSelect = (e) => {
