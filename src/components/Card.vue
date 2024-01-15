@@ -1,15 +1,18 @@
 <script setup>
-defineProps({
+import { inject } from 'vue'
+
+import addDrawerItems from '@/services/components/Card/add-drawer-items'
+const item = defineProps({
+  itemId: Number,
   title: String,
   imageUrl: String,
   price: Number,
   isFavorite: Boolean,
-  isAdded: Boolean,
-  onClickAdd: Function,
-  onClickFavorite: Function
+  isAdded: Boolean
 })
-</script>
 
+const elements = inject('elements')
+</script>
 
 <template>
   <li
@@ -25,7 +28,11 @@ defineProps({
         <span class="text-slate-200">Цена:</span>
         <span class="font-bold">{{ price }} руб.</span>
       </div>
-      <img :src="!isAdded ? '/plus.svg' : '/public/checked.svg'" alt="Plus" />
+      <img
+        @click="() => addDrawerItems(elements.drawerItems, elements.items, item)"
+        :src="!isAdded ? '/plus.svg' : '/public/checked.svg'"
+        alt="Plus"
+      />
     </div>
   </li>
 </template>
