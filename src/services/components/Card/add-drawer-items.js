@@ -2,6 +2,12 @@ import axios from 'axios'
 import { toValue } from 'vue'
 
 const addDrawerItems = async (drawerItems, items, item) => {
+  for (const el of items.value) {
+    if (el.id === item.itemId) {
+      el.isAdded = !el.isAdded
+    }
+  }
+
   const { data } = await axios.get('https://3b693c9b64066ada.mokky.dev/added').catch((e) => {
     console.error('errorGET addDrawerItems: ', e)
   })
@@ -16,11 +22,6 @@ const addDrawerItems = async (drawerItems, items, item) => {
   }
 
   if (elIsAdded) {
-    for (const el of items.value) {
-      if (el.id === item.itemId) {
-        el.isAdded = false
-      }
-    }
     drawerItems.value = drawerItems.value.filter((el) => el.itemId !== item.itemId)
     console.log('true: ', drawerItems.value)
     await axios.delete('https://3b693c9b64066ada.mokky.dev/added/' + id).catch((e) => {
@@ -28,11 +29,6 @@ const addDrawerItems = async (drawerItems, items, item) => {
     })
   } else {
     drawerItems.value = [...data, { ...item }]
-    for (const el of items.value) {
-      if (el.id === item.itemId) {
-        el.isAdded = true
-      }
-    }
     console.log('false: ', drawerItems.value)
     await axios.post('https://3b693c9b64066ada.mokky.dev/added', toValue(item)).catch((e) => {
       console.error('errorGET addDrawerItems: ', e)
