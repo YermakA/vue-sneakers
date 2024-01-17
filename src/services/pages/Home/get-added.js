@@ -10,8 +10,6 @@ const getAdded = async (items, drawerItems) => {
         }
       }
     }
-
-    console.log('getItems completed')
   } catch (e) {
     console.log('err:', e)
   }

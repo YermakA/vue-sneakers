@@ -16,6 +16,7 @@ const fetchItems = async (filters, items, drawerItems) => {
       el.isFavorite = false
       return el
     })
+
     for (const el of drawerItems.value) {
       for (const item of data) {
         if (el.itemId === item.id) item.isAdded = true

@@ -1,8 +1,7 @@
 <script setup>
+import { inject } from 'vue'
 import Card from './Card.vue'
-defineProps({
-  items: Object
-})
+const items = inject('elements').items
 </script>
 
 <template>
