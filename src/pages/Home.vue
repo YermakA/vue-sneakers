@@ -7,6 +7,7 @@ import Drawer from '@/components/Drawer.vue'
 
 import getItems from '@/services/pages/Home/get-items'
 import fetchItems from '@/services/pages/Home/fetch-items'
+import getAdded from '@/services/pages/Home/get-added'
 
 const drawerItems = ref([])
 const drawerIsOpen = ref(false)
@@ -16,7 +17,10 @@ const filters = reactive({
   searchQuery: ''
 })
 watch(filters, () => fetchItems(filters, items, drawerItems))
-onMounted(() => getItems(items))
+onMounted(() => {
+  getItems(items)
+  getAdded(items, drawerItems)
+})
 
 const onChangeSelect = (e) => {
   filters.sortBy = e.target.value
