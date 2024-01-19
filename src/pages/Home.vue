@@ -4,7 +4,7 @@ import Search from '@/components/Search.vue'
 
 import CardList from '@/components/CardList.vue'
 
-import fetchItems from '@/services/pages/Home/fetch-items'
+import fetchItems from '@/services/fetch-items'
 
 const filters = reactive({
   sortBy: '',

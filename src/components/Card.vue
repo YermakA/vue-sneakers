@@ -1,6 +1,6 @@
 <script setup>
 import { inject } from 'vue'
-
+import onClickFavorite from '@/services/components/Card/on-click-favorite'
 import addDrawerItems from '@/services/components/Card/add-drawer-items'
 const item = defineProps({
   itemId: Number,
@@ -19,7 +19,11 @@ const elements = inject('elements')
     class="relative flex flex-col w-full border border-slate-100 rounded-xl p-8 cursor-pointer transition hover:shadow-xl hover:transform hover:-translate-y-2"
   >
     <div click="" class="absolute top-8 left-8">
-      <img :src="isFavorite ? '/public/like-2.svg' : '/public/like-1.svg'" alt="Favorite" />
+      <img
+        @click="() => onClickFavorite(item, elements.favorites, elements.items)"
+        :src="isFavorite ? '/public/like-2.svg' : '/public/like-1.svg'"
+        alt="Favorite"
+      />
     </div>
     <img @click="onClickAdd" :src="imageUrl" class="w-full" alt="Sneaker" />
     <p>{{ title }}</p>

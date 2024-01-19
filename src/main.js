@@ -4,8 +4,8 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
-const Home = { template: './pages/Home.vue' }
-const Favorites = { template: './pages/Favorites.vue' }
+import Home from './pages/Home.vue'
+import Favorites from './pages/Favorites.vue'
 
 const routes = [
   { path: '/', component: Home },
