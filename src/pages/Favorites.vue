@@ -17,6 +17,7 @@ const favorites = inject('elements').favorites
         :image-url="item.imageUrl"
         :price="item.price"
         :title="item.title"
+        :is-no-added="true"
       />
     </ul>
   </div>
@@ -24,11 +25,11 @@ const favorites = inject('elements').favorites
     <img class="w-20 h-20" src="../../public/emoji-1.png" alt="" />
     <h2 class="font-bold text-3xl">Закладок нет :(</h2>
     <p>Вы ничего не добавляли в закладки</p>
-
-    <button
-      class="transition bg-lime-400 rounded-3xl py-3 w-full font-bold disabled:bg-slate-300 text-slate-100 hover:bg-lime-700 active:bg-lime-800 w-64"
+    <router-link
+      to="/"
+      class="flex justify-center transition bg-lime-400 rounded-3xl py-3 w-full font-bold disabled:bg-slate-300 text-slate-100 hover:bg-lime-700 active:bg-lime-800 w-64"
     >
       Get back
-    </button>
+    </router-link>
   </div>
 </template>

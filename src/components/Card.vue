@@ -8,7 +8,8 @@ const item = defineProps({
   imageUrl: String,
   price: Number,
   isFavorite: Boolean,
-  isAdded: Boolean
+  isAdded: Boolean,
+  isNoAdded: Boolean
 })
 
 const elements = inject('elements')
@@ -34,6 +35,7 @@ const elements = inject('elements')
       </div>
       <img
         @click="() => addDrawerItems(elements.drawerItems, elements.items, item)"
+        v-if="!isNoAdded"
         :src="!isAdded ? '/plus.svg' : '/public/checked.svg'"
         alt="Plus"
       />
